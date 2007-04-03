@@ -1,6 +1,7 @@
 use Test::More tests => 2;
 
 BEGIN { 
-    use_ok( 'DBIx::Class::Index' );
-    use_ok( 'LuceneQuery::Abstract' );
+    use_ok( 'DBIx::Class::Indexed' );
+    use_ok( 'DBIx::Class::Indexer' );
+    use_ok( 'DBIx::Class::Indexer::WebService::Lucene' );
 }
