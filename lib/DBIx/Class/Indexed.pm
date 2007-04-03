@@ -5,6 +5,8 @@ use warnings;
 
 use base qw( DBIx::Class );
 
+our $VERSION = '0.01';
+
 __PACKAGE__->mk_classdata( _indexer                => undef );
 __PACKAGE__->mk_classdata( indexer_connection_info => {} );
 __PACKAGE__->mk_classdata( indexer_package         => undef );
