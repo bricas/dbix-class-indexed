@@ -3,15 +3,13 @@ use strict;
 use Module::Build;
 
 my $build = Module::Build->new(
-    module_name        => 'DBIx::Class::Index',
+    module_name        => 'DBIx::Class::Indexed',
     dist_author        => 'Adam Paynter <adapay@cpan.org>',
     license            => 'perl',
     create_readme      => 1,
     create_makefile_pl => 'traditional',
     requires           => {
         'DBIx::Class'        => 0,
-        'Scalar::Util'       => 0,
-        'WebService::Lucene' => 0,
     },
     build_requires     => {
         'Test::More' => 0
