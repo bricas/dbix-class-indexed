@@ -35,6 +35,8 @@ sub new {
 
 =head2 insert( $object )
 
+Handles the insert operation.
+
 =cut
 
 sub insert {
@@ -43,6 +45,8 @@ sub insert {
 
 =head2 update( $object )
 
+Handles the update operation.
+
 =cut
 
 sub update {
@@ -50,6 +54,8 @@ sub update {
 }
 
 =head2 delete( $object )
+
+Handles the delete operation.
 
 =cut
 
@@ -62,6 +68,8 @@ sub delete {
 =over 4
 
 =item * Adam Paynter E<lt>adapay@cpan.orgE<gt>
+
+=item * Brian Cassidy E<lt>bricas@cpan.orgE<gt>
 
 =back
 

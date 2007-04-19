@@ -75,10 +75,9 @@ when it is deleted.
 
 =head1 METHODS
 
-=head2 set_indexer( $name [, \%connection_info ] )
+=head2 indexer( )
 
-Set the indexer information. Connection information is stored in the C<indexer_connection_info> 
-accessor and the package name is stored in C<indexer_package>.
+Accessor for the indexer object; lazy loaded. 
 
 =cut
 
@@ -107,6 +106,13 @@ sub indexer {
     return $indexer;
 }
 
+=head2 set_indexer( $name [, \%connection_info ] )
+
+Set the indexer information. Connection information is stored in the C<indexer_connection_info> 
+accessor and the package name is stored in C<indexer_package>.
+
+=cut
+
 sub set_indexer {
     my $class        = shift;
     my $name         = shift;
@@ -117,6 +123,8 @@ sub set_indexer {
 }
 
 =head2 insert( )
+
+Sends the object to the indexer's C<insert> method, if C<index_on_insert> is true.
 
 =cut
 
@@ -137,6 +145,8 @@ sub insert {
 
 =head2 update( )
 
+Sends the object to the indexer's C<update> method, if C<index_on_update> is true.
+
 =cut
 
 sub update {
@@ -156,6 +166,8 @@ sub update {
 
 =head2 delete( )
 
+Sends the object to the indexer's C<delete> method, if C<index_on_delete> is true.
+
 =cut
 
 sub delete {
@@ -170,9 +182,8 @@ sub delete {
 
 =head2 register_column ( $column, \%info )
 
-Behaves similar to DBIx::Class register_column.
-If %info contains the key 'index', calls
-register_field().
+Overrides DBIx::Class's C<register_column>. If %info contains
+the key 'indexed', calls C<register_field>.
 
 =cut
 
@@ -187,8 +198,8 @@ sub register_column {
 
 =head2 add_index_fields ( @fields )
 
-Behaves similarly to DBIx::Class add_columns.
-Calls register_field.
+Behaves similarly to DBIx::Class's C<add_columns>. Calls
+C<register_field> underneath.
 
 =cut
 
@@ -215,11 +226,13 @@ sub register_field {
     $class->index_fields->{ $field } = $info;
 }
 
-=head1 AUTHOR
+=head1 AUTHORS
 
 =over 4
 
 =item * Adam Paynter E<lt>adapay@cpan.orgE<gt>
+
+=item * Brian Cassidy E<lt>bricas@cpan.orgE<gt>
 
 =back
 
