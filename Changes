@@ -1,4 +1,7 @@
 Revision history for Perl extension DBIx::Class::Indexed.
 
+0.02  XXXX
+        - update tests
+
 0.01  Tue Apr 03 2007
 	- original version;
