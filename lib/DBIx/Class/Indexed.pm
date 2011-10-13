@@ -2,6 +2,7 @@ package DBIx::Class::Indexed;
 
 use strict;
 use warnings;
+use Module::Load;
 
 use base qw( DBIx::Class );
 
@@ -95,9 +96,7 @@ sub indexer {
         my $name    = $self->indexer_package;
         my $package = "DBIx::Class::Indexer::$name";
         
-        # ensure the indexer package is loaded
-        eval "require $package";
-        die "Failed to load indexer: $@" if $@;
+        load $package;
 
         $indexer = $package->new( $self->indexer_connection_info, ref $self );
         $schema->{ _indexers }->{ $key } = $indexer;
