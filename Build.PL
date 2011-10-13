@@ -10,6 +10,7 @@ my $build = Module::Build->new(
     create_makefile_pl => 'traditional',
     requires           => {
         'DBIx::Class' => 0,
+        'Module::Load' => 0.22
     },
     build_requires     => {
         'Test::More' => 0
