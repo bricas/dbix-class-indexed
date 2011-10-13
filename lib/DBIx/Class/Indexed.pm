@@ -6,7 +6,7 @@ use Module::Load;
 
 use base qw( DBIx::Class );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 __PACKAGE__->mk_classdata( _indexer                => undef );
 __PACKAGE__->mk_classdata( indexer_connection_info => {} );
@@ -237,7 +237,7 @@ sub register_field {
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2006 by Adam Paynter
+Copyright 2006 by Adam Paynter, 2007-2011 by Brian Cassidy
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 
